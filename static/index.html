@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>tumbo-demoapp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>tumbo-demoapp</h1>
+        <hr/>
+
+        <blockquote class="blockquote">
+            <p class="mb-0">See the code on Github
+                <a href="https://github.com/sahlinet/tumbo-demoapp">sahlinet/tumbo-demoapp</a>
+            </p>
+        </blockquote>
+
+        <h2>Authentication</h2>
+        {% if is_authenticated %}
+        <p>Welcome, {{ username }}. Thanks for logging in.</p>
+
+        {% with "/userland/"|add:RUNTIME_USER|add:"/tumbo-demoapp/static/index.html" as next %}
+        <a href="{% url 'userland-logout' RUNTIME_USER 'tumbo-demoapp' %}?next={{ next }}">Logout</a>
+        {% endwith %} {% else %}
+        <p>Welcome, new user. Please log in.</p>
+        <a href="{% url 'cas-login' %}?service=/userland/{{ RUNTIME_USER }}/tumbo-demoapp/static/index.html">Login</a>
+        {% endif %}
+
+        <h2>Service Port</h2>
+        {% if SERVICE_PORT == None %}
+        <p>Executor has no port allocated yet.</p>
+        {% else %} {{SERVICE_IP}}:{{ SERVICE_PORT }} {% endif %}
+
+        <h2>Lifecycle</h2>
+
+        <h3>Init</h3>
+        The apy <code>init</code> is called after starting a Base.
+
+        <h2>Static Files</h2>
+        <!-- You are looking at a static file if you see this comment -->
+
+        <h3>Includes</h3>
+
+        <p>Following text is included from <code>includes/include.html</code></p>
+
+        {% include ""|add:RUNTIME_USER|add:":tumbo-demoapp:static/includes/include.html" %}
+
+
+        <h2>Apy's</h2>
+
+        <h2>Scheduler</h2>
+
+        <p>Apy <code>scheduler</code> is configured with config <code>*/2 * * *</code> and following code:</p>
+
+        <code>
+                def func(self):<br/>
+                &emsp;&emsp;&ensp;data = {"message": "Hello people!"}<br/>
+                &emsp;&ensp;&ensp;self.datastore.write_dict(data)<br/>
+        </code>
+
+        <h2>Datastore</h2>
+
+        {% for obj in datastore.all %}
+        <li>
+            Obj: {{ obj.data.message }} ({{ obj.created_on }})
+        </li>
+        {% empty %}
+        <p>Datastore is empty - wait for the next scheduled run...</p>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
