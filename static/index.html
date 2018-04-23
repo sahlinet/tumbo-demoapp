@@ -21,6 +21,15 @@
             </p>
         </blockquote>
 
+        <h2>CLI</h2>
+
+        Tryout the CLI.
+
+        <p><code>pip install tumbo-server</code></p>
+
+        <p>Log into a Tumbo Instance by: </p>
+        <p><code>tumbo-cli.py env local http://localhost:8000</code></p>
+
         <h2>Authentication</h2>
         {% if is_authenticated %}
         <p>Welcome, {{ username }}. Thanks for logging in.</p>
@@ -41,6 +50,7 @@
 
         <h3>Init</h3>
         The apy <code>init</code> is called after starting a Base.
+        You can check with an API Call the last transactions on <code>init</code>: <a target="_new" href="/core/api/base/tumbo-demoapp/transactions/?apy=init">/core/api/base/tumbo-demoapp/transactions/?apy=init</a>
 
         <h2>Static Files</h2>
         <!-- You are looking at a static file if you see this comment -->
