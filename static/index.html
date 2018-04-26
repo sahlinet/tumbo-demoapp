@@ -25,10 +25,14 @@
 
         Tryout the CLI.
 
-        <p><code>pip install tumbo-server</code></p>
+        <p>
+            <code>pip install tumbo-server</code>
+        </p>
 
         <p>Log into a Tumbo Instance by: </p>
-        <p><code>tumbo-cli.py env local http://localhost:8000</code></p>
+        <p>
+            <code>tumbo-cli.py env local http://localhost:8000</code>
+        </p>
 
         <h2>Authentication</h2>
         {% if is_authenticated %}
@@ -49,15 +53,19 @@
         <h2>Lifecycle</h2>
 
         <h3>Init</h3>
-        The apy <code>init</code> is called after starting a Base.
-        You can check with an API Call the last transactions on <code>init</code>: <a target="_new" href="/core/api/base/tumbo-demoapp/transactions/?apy=init">/core/api/base/tumbo-demoapp/transactions/?apy=init</a>
+        The apy
+        <code>init</code> is called after starting a Base. You can check with an API Call the last transactions on
+        <code>init</code>:
+        <a target="_new" href="/core/api/base/tumbo-demoapp/transactions/?apy=init">/core/api/base/tumbo-demoapp/transactions/?apy=init</a>
 
         <h2>Static Files</h2>
         <!-- You are looking at a static file if you see this comment -->
 
         <h3>Includes</h3>
 
-        <p>Following text is included from <code>includes/include.html</code></p>
+        <p>Following text is included from
+            <code>includes/include.html</code>
+        </p>
 
         {% include ""|add:RUNTIME_USER|add:":tumbo-demoapp:static/includes/include.html" %}
 
@@ -66,7 +74,9 @@
 
         <h2>Scheduler</h2>
 
-        <p>Apy <code>scheduler</code> is configured with config <code>*/2 * * *</code> and following code:</p>
+        <p>Apy
+            <code>scheduler</code> is configured with config
+            <code>*/2 * * *</code> and following code:</p>
 
         <code>
                 def func(self):<br/>
