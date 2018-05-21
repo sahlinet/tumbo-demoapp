@@ -1,2 +1,4 @@
 def func(self):
-	return "Running Init"
+	import json
+	from core import responses
+	return responses.JSONResponse(json.dumps({"message": "Running Init"}))
