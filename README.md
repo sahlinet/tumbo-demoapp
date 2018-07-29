@@ -1,5 +1,5 @@
 # tumbo-demoapp
-Demo App for Tumbo
+Demo Application for Tumbo
 
     git clone git@github.com:sahlinet/tumbo-demoapp.git
     zip -r tumbo-demoapp  . -x ".git/*" .     # creates tumbo-demoapp.zip
@@ -7,4 +7,4 @@ Demo App for Tumbo
 
 or
 
-    tumbo-cli.py project tumbo-demoapp create --env=minikube --git_url=https://github.com/sahlinet/tumbo-demoapp.git --branch=test-branch
+    tumbo-cli.py project tumbo-demoapp create --git_url=https://github.com/sahlinet/tumbo-demoapp.git --branch=master
