@@ -7,4 +7,4 @@ Demo App for Tumbo
 
 or
 
-    tumbo-cli.py project tumbo-demoapp create --git_url=https://github.com/sahlinet/tumbo-demoapp.git --branch=test-branch
+    tumbo-cli.py project tumbo-demoapp create --git_url=https://github.com/sahlinet/tumbo-demoapp.git --branch=master
