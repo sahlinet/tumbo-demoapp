@@ -1,5 +1,6 @@
 # tumbo-demoapp
-Demo App for Tumbo
+
+Demonstrates features of Tumbo-Server with an example application.
 
     git clone git@github.com:sahlinet/tumbo-demoapp.git
     zip -r tumbo-demoapp  . -x ".git/*" .     # creates tumbo-demoapp.zip
